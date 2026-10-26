@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Launcher 图标方案</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #111114; color: #e8e8ec;
+    font: 13px/1.5 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { padding: 28px 40px 8px; max-width: 1320px; margin: 0 auto; }
+  header h1 { margin: 0 0 6px; font-size: 20px; color: #fff; }
+  header p { margin: 0; color: #9a9aa4; max-width: 860px; }
+  main { max-width: 1320px; margin: 0 auto; padding: 20px 40px 60px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px; }
+  .card {
+    background: #18181c; border: 1px solid #26262c; border-radius: 16px; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .hero {
+    height: 300px; display: flex; align-items: center; justify-content: center; position: relative;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,122,89,.35) 0, transparent 45%),
+      radial-gradient(circle at 85% 30%, rgba(123,92,255,.4) 0, transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(31,181,168,.35) 0, transparent 50%),
+      #1d1f2b;
+  }
+  .hero.light { background:
+      radial-gradient(circle at 20% 20%, rgba(255,170,140,.5) 0, transparent 45%),
+      radial-gradient(circle at 85% 30%, rgba(190,170,255,.55) 0, transparent 50%),
+      radial-gradient(circle at 50% 100%, rgba(150,235,225,.5) 0, transparent 50%),
+      #e9ecf4; }
+  .hero svg { width: 240px; height: 240px; }
+  .hero .tag { position: absolute; left: 14px; top: 12px; font-size: 12px; font-weight: 700; color: rgba(255,255,255,.85);
+    background: rgba(0,0,0,.35); padding: 2px 9px; border-radius: 999px; }
+  .sizes { display: flex; align-items: flex-end; gap: 18px; padding: 16px 20px; border-bottom: 1px solid #24242a; }
+  .sizes div { display: flex; flex-direction: column; align-items: center; gap: 4px; color: #6f6f78; font-size: 10px; }
+  .info { padding: 14px 20px 18px; }
+  .info h3 { margin: 0 0 4px; font-size: 15px; color: #fff; }
+  .info p { margin: 0 0 10px; color: #a8a8b2; }
+  .info ul { margin: 0; padding-left: 16px; color: #8d8d97; font-size: 12px; }
+  .info li { margin-bottom: 3px; }
+  .info li.plus::marker { content: "+ "; color: #5bd18b; }
+  .info li.minus::marker { content: "− "; color: #ff8a7a; }
+  .mb { display: flex; gap: 0; }
+  .mb span { display: flex; align-items: center; gap: 10px; padding: 6px 12px; font-size: 11px; }
+  .mb .d { background: #2a2a30; color: #fff; }
+  .mb .l { background: #e7e7ec; color: #111; }
+  .mb svg { width: 16px; height: 16px; }
+
+  section.compare { margin-top: 44px; }
+  section.compare h2 { font-size: 16px; color: #fff; margin: 0 0 12px; }
+  .dock {
+    display: inline-flex; gap: 14px; padding: 12px 16px; border-radius: 22px; margin: 0 16px 16px 0;
+    background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(20px);
+  }
+  .dock-wrap { padding: 30px; border-radius: 16px; display: inline-block;
+    background: linear-gradient(135deg, #3a3f63, #1a1c2c); margin-right: 16px; margin-bottom: 16px; }
+  .dock-wrap.light { background: linear-gradient(135deg, #f1e7ff, #d9ecff); }
+  .dock-wrap.light .dock { background: rgba(255,255,255,.5); border-color: rgba(255,255,255,.7); }
+  .dock svg { width: 64px; height: 64px; }
+  .dock .lbl { text-align: center; font-size: 11px; margin-top: 4px; color: rgba(255,255,255,.75); }
+  .dock-wrap.light .lbl { color: #333; }
+  footer { text-align: center; color: #666; font-size: 12px; padding-bottom: 40px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- A 星光透镜 -->
+    <linearGradient id="a-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6f8dff"/><stop offset="1" stop-color="#a456ff"/>
+    </linearGradient>
+    <!-- B 命令栏 -->
+    <linearGradient id="b-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e3040"/><stop offset="1" stop-color="#13141b"/>
+    </linearGradient>
+    <linearGradient id="b-glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7aa2ff"/><stop offset="1" stop-color="#b16bff"/>
+    </linearGradient>
+    <!-- C 取景框 -->
+    <linearGradient id="c-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3b4"/><stop offset="1" stop-color="#2f62ff"/>
+    </linearGradient>
+    <!-- D 光标 L -->
+    <linearGradient id="d-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a4d"/><stop offset="1" stop-color="#ff3d7f"/>
+    </linearGradient>
+    <!-- E 轨道 -->
+    <radialGradient id="e-bg" cx=".3" cy=".25" r="1">
+      <stop offset="0" stop-color="#26357a"/><stop offset="1" stop-color="#0b1026"/>
+    </radialGradient>
+    <radialGradient id="e-planet" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#9fb6ff"/><stop offset="1" stop-color="#5a4bff"/>
+    </radialGradient>
+    <!-- F 棱镜 -->
+    <linearGradient id="f-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c22"/><stop offset="1" stop-color="#0a0a0d"/>
+    </linearGradient>
+    <linearGradient id="f-in" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <!-- G 面板缩影 -->
+    <linearGradient id="g-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e4e7f0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- A 星光透镜：放大镜 + 星光 -->
+  <symbol id="ic-a" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#a-bg)"/>
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#gloss)"/>
+    </g>
+    <circle cx="468" cy="468" r="196" fill="#fff" fill-opacity=".12" stroke="#fff" stroke-width="64"/>
+    <path d="M612 612 L762 762" stroke="#fff" stroke-width="84" stroke-linecap="round"/>
+    <path d="M468 370 C478 438 498 458 566 468 C498 478 478 498 468 566 C458 498 438 478 370 468 C438 458 458 438 468 370 Z" fill="#fff"/>
+  </symbol>
+
+  <!-- B 命令栏：搜索框 + 光标 + 结果行 -->
+  <symbol id="ic-b" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#b-bg)"/>
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="4"/>
+    </g>
+    <ellipse cx="512" cy="385" rx="300" ry="110" fill="url(#b-glow)" opacity=".55" filter="url(#blur)"/>
+    <rect x="196" y="300" width="632" height="170" rx="85" fill="#fff" fill-opacity=".13" stroke="#fff" stroke-opacity=".28" stroke-width="6"/>
+    <circle cx="300" cy="380" r="40" fill="none" stroke="#fff" stroke-width="18"/>
+    <path d="M330 410 L362 442" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+    <rect x="410" y="335" width="16" height="90" rx="8" fill="url(#b-glow)"/>
+    <rect x="196" y="530" width="632" height="76" rx="22" fill="#fff" fill-opacity=".16"/>
+    <circle cx="246" cy="568" r="20" fill="#7aa2ff"/>
+    <rect x="286" y="556" width="300" height="24" rx="12" fill="#fff" fill-opacity=".7"/>
+    <rect x="216" y="640" width="30" height="30" rx="8" fill="#ffb35c" opacity=".8"/>
+    <rect x="270" y="645" width="380" height="20" rx="10" fill="#fff" fill-opacity=".28"/>
+    <rect x="216" y="710" width="30" height="30" rx="8" fill="#5bd18b" opacity=".8"/>
+    <rect x="270" y="715" width="260" height="20" rx="10" fill="#fff" fill-opacity=".2"/>
+  </symbol>
+
+  <!-- C 取景框：四角 + 焦点（呼应以后的"找到视频里的一帧"） -->
+  <symbol id="ic-c" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#c-bg)"/>
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#gloss)"/>
+    </g>
+    <g fill="none" stroke="#fff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M260 390 V260 H390"/>
+      <path d="M634 260 H764 V390"/>
+      <path d="M764 634 V764 H634"/>
+      <path d="M390 764 H260 V634"/>
+    </g>
+    <circle cx="512" cy="512" r="140" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="26"/>
+    <circle cx="512" cy="512" r="64" fill="#fff"/>
+  </symbol>
+
+  <!-- D 光标 L：字母 L 的竖笔是文本光标 -->
+  <symbol id="ic-d" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#d-bg)"/>
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#gloss)"/>
+    </g>
+    <path d="M390 270 V700 H690" fill="none" stroke="#fff" stroke-width="116" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M690 250 C698 318 716 336 784 344 C716 352 698 370 690 438 C682 370 664 352 596 344 C664 336 682 318 690 250 Z" fill="#fff"/>
+  </symbol>
+
+  <!-- E 轨道：发光的球 + 环绕轨道 -->
+  <symbol id="ic-e" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#e-bg)"/>
+    </g>
+    <g fill="#fff">
+      <circle cx="250" cy="260" r="5" opacity=".7"/><circle cx="780" cy="230" r="4" opacity=".5"/>
+      <circle cx="820" cy="700" r="5" opacity=".6"/><circle cx="210" cy="760" r="3" opacity=".5"/>
+      <circle cx="700" cy="820" r="3" opacity=".4"/>
+    </g>
+    <g transform="rotate(-22 512 512)">
+      <path d="M182 512 A330 104 0 0 1 842 512" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="22"/>
+    </g>
+    <circle cx="512" cy="512" r="180" fill="url(#e-planet)"/>
+    <g transform="rotate(-22 512 512)">
+      <path d="M842 512 A330 104 0 0 1 182 512" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+      <circle cx="300" cy="590" r="30" fill="#ffd36b"/>
+    </g>
+  </symbol>
+
+  <!-- F 棱镜：一束输入，分成多种结果 -->
+  <symbol id="ic-f" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#f-bg)"/>
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="4"/>
+    </g>
+    <path d="M160 590 L420 520" stroke="url(#f-in)" stroke-width="22" stroke-linecap="round"/>
+    <g stroke-width="26" stroke-linecap="round">
+      <path d="M600 470 L850 360" stroke="#ff5f6d"/>
+      <path d="M612 500 L855 450" stroke="#ffb35c"/>
+      <path d="M625 530 L858 540" stroke="#ffe066"/>
+      <path d="M638 560 L855 630" stroke="#5bd18b"/>
+      <path d="M650 590 L848 720" stroke="#5b8cff"/>
+    </g>
+    <path d="M512 300 L680 640 H344 Z" fill="#202027" stroke="#fff" stroke-width="30" stroke-linejoin="round"/>
+    <path d="M512 380 L620 600 H404 Z" fill="#fff" fill-opacity=".06"/>
+  </symbol>
+
+  <!-- G 面板缩影：浅色，像一个迷你 Launcher -->
+  <symbol id="ic-g" viewBox="0 0 1024 1024">
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#g-bg)"/>
+    </g>
+    <rect x="200" y="250" width="624" height="140" rx="70" fill="#fff" stroke="#d5d9e4" stroke-width="8"/>
+    <circle cx="290" cy="320" r="34" fill="none" stroke="#5b6cff" stroke-width="16"/>
+    <path d="M315 345 L342 372" stroke="#5b6cff" stroke-width="16" stroke-linecap="round"/>
+    <rect x="380" y="306" width="230" height="28" rx="14" fill="#c8cede"/>
+    <rect x="200" y="450" width="624" height="96" rx="28" fill="#5b6cff"/>
+    <rect x="234" y="476" width="44" height="44" rx="12" fill="#fff"/>
+    <rect x="300" y="486" width="300" height="24" rx="12" fill="#fff"/>
+    <rect x="234" y="590" width="44" height="44" rx="12" fill="#ffb35c"/>
+    <rect x="300" y="600" width="340" height="24" rx="12" fill="#c8cede"/>
+    <rect x="234" y="680" width="44" height="44" rx="12" fill="#3dbf7f"/>
+    <rect x="300" y="690" width="250" height="24" rx="12" fill="#d8dce7"/>
+  </symbol>
+
+  <!-- 菜单栏单色图标 -->
+  <symbol id="mb-a" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5 L20 20" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M10.5 7.3c.25 1.9.9 2.6 3.2 3.2-2.3.6-2.95 1.3-3.2 3.2-.25-1.9-.9-2.6-3.2-3.2 2.3-.6 2.95-1.3 3.2-3.2z" fill="currentColor"/></symbol>
+  <symbol id="mb-b" viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="7" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 7.8v3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3 17h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="mb-c" viewBox="0 0 24 24"><path d="M4 8.5V4h4.5M15.5 4H20v4.5M20 15.5V20h-4.5M8.5 20H4v-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" fill="currentColor"/></symbol>
+  <symbol id="mb-d" viewBox="0 0 24 24"><path d="M8 4.5v13h9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 3c.2 1.6.7 2.1 2.3 2.3-1.6.2-2.1.7-2.3 2.3-.2-1.6-.7-2.1-2.3-2.3 1.6-.2 2.1-.7 2.3-2.3z" fill="currentColor"/></symbol>
+  <symbol id="mb-e" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="9.5" ry="3.4" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-22 12 12)"/></symbol>
+  <symbol id="mb-f" viewBox="0 0 24 24"><path d="M12 5l5 10H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 13.5l6-1M16.2 10.8l5.8-2.8M16.9 12.8l5.1 0M17.6 14.8l4.4 2.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+  <symbol id="mb-g" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="5" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="11.5" width="18" height="3.6" rx="1.2" fill="currentColor"/><path d="M4 18.8h11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+</svg>
+
+<header>
+  <h1>Launcher 图标方案</h1>
+  <p>7 个方向，每个都画了 App 图标（Dock、启动台、Finder 里看到的）和菜单栏单色图标（Launcher 平时主要露面的地方）。方案 C 呼应以后"找到视频里某一帧"的语义搜索方向。选中方向后，我再细化并导出 <code>resources/icon.png</code>。</p>
+</header>
+
+<main>
+  <div class="grid" id="grid"></div>
+
+  <section class="compare">
+    <h2>放进 Dock 里对比</h2>
+    <div class="dock-wrap"><div class="dock" id="dock-dark"></div></div>
+    <div class="dock-wrap light"><div class="dock" id="dock-light"></div></div>
+  </section>
+</main>
+<footer>点击右上角刷新以重新加载 · 所有图形均为 SVG，可无损放大</footer>
+
+<script>
+const icons = [
+  { id: "a", name: "A 星光透镜", desc: "放大镜里有一颗星光：搜索，加上一点智能。紫蓝渐变，和 Launcher 底栏的品牌色一致。",
+    plus: ["一眼看出是搜索工具", "缩到 16px 依然清楚", "颜色和现有界面统一"], minus: ["放大镜图标很常见，辨识度一般"] },
+  { id: "b", name: "B 命令栏", desc: "直接画出 Launcher 本身：一个发光的搜索框、闪烁的光标和下面的结果行。深色玻璃质感，接近 Raycast 的气质。",
+    plus: ["和产品形态完全对应", "深色高级感"], minus: ["细节多，小尺寸会糊", "和 Spotlight/Raycast 风格接近"] },
+  { id: "c", name: "C 取景框", desc: "相机取景框的四个角，中间是对焦点：在一堆东西里“锁定”你要的那个。也呼应以后的多模态搜索——找到照片、视频里的某个画面。",
+    plus: ["几何感强，非常好认", "契合语义/画面搜索的未来方向", "菜单栏版本简洁"], minus: ["可能让人以为是截图或相机应用"] },
+  { id: "d", name: "D 光标 L", desc: "字母 L（Launcher）的竖笔就是输入光标，右上角一颗星光表示“启动”。暖色橙粉渐变，在 Dock 里很跳。",
+    plus: ["品牌名首字母，独特", "颜色在 Dock 里最显眼"], minus: ["和“搜索”的联系不如 A、C 直接", "换名字的话要重画"] },
+  { id: "e", name: "E 轨道", desc: "一颗发光的星球和绕它的轨道：所有应用、文件都绕着你转，随叫随到。深空蓝背景，偏抽象。",
+    plus: ["抽象有记忆点", "适合以后扩展更多能力"], minus: ["不直观，需要解释", "小尺寸下轨道容易看不清"] },
+  { id: "f", name: "F 棱镜", desc: "一束光穿过棱镜，分成彩色光谱：一次输入，得到应用、文件、内容、计算等多种结果。",
+    plus: ["概念有故事性", "黑底彩色，对比强烈"], minus: ["彩色线条在小尺寸下会挤", "有点像设计/摄影类应用"] },
+  { id: "g", name: "G 面板缩影", desc: "浅色版的迷你 Launcher 面板：搜索框、选中的高亮行、彩色结果图标。简洁、友好，接近 Apple 自带应用的风格。",
+    plus: ["干净友好，像系统应用", "浅色在深色 Dock 里很突出"], minus: ["偏“界面截图”，个性较弱"] },
+];
+
+const use = (id, size) => `<svg viewBox="0 0 1024 1024" width="${size}" height="${size}"><use href="#ic-${id}"/></svg>`;
+const mb = id => `<svg viewBox="0 0 24 24"><use href="#mb-${id}"/></svg>`;
+
+document.getElementById("grid").innerHTML = icons.map(ic => `
+  <div class="card">
+    <div class="hero${ic.id === "g" ? " light" : ""}"><span class="tag">${ic.id.toUpperCase()}</span>${use(ic.id, 240)}</div>
+    <div class="sizes">
+      ${[128, 64, 32, 16].map(s => `<div>${use(ic.id, s)}<span>${s}px</span></div>`).join("")}
+      <div style="margin-left:auto"><div class="mb"><span class="d">${mb(ic.id)} 10:24</span><span class="l">${mb(ic.id)} 10:24</span></div><span>菜单栏</span></div>
+    </div>
+    <div class="info">
+      <h3>${ic.name}</h3>
+      <p>${ic.desc}</p>
+      <ul>${ic.plus.map(x => `<li class="plus">${x}</li>`).join("")}${ic.minus.map(x => `<li class="minus">${x}</li>`).join("")}</ul>
+    </div>
+  </div>`).join("");
+
+for (const where of ["dock-dark", "dock-light"]) {
+  document.getElementById(where).innerHTML = icons.map(ic =>
+    `<div>${use(ic.id, 64)}<div class="lbl">${ic.id.toUpperCase()}</div></div>`).join("");
+}
+</script>
+</body>
+</html>

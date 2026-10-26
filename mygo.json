@@ -1,0 +1,11 @@
+{
+  "name": "Spectra",
+  "identifier": "com.bubblebrain.spectra",
+  "version": "0.1.0",
+  "out": "build",
+  "macos": {
+    "infoPlist": {
+      "LSUIElement": true
+    }
+  }
+}

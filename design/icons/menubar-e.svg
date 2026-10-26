@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" color="#000"><defs>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- A 星光透镜 -->
+    <linearGradient id="a-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6f8dff"/><stop offset="1" stop-color="#a456ff"/>
+    </linearGradient>
+    <!-- B 命令栏 -->
+    <linearGradient id="b-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e3040"/><stop offset="1" stop-color="#13141b"/>
+    </linearGradient>
+    <linearGradient id="b-glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7aa2ff"/><stop offset="1" stop-color="#b16bff"/>
+    </linearGradient>
+    <!-- C 取景框 -->
+    <linearGradient id="c-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3b4"/><stop offset="1" stop-color="#2f62ff"/>
+    </linearGradient>
+    <!-- D 光标 L -->
+    <linearGradient id="d-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a4d"/><stop offset="1" stop-color="#ff3d7f"/>
+    </linearGradient>
+    <!-- E 轨道 -->
+    <radialGradient id="e-bg" cx=".3" cy=".25" r="1">
+      <stop offset="0" stop-color="#26357a"/><stop offset="1" stop-color="#0b1026"/>
+    </radialGradient>
+    <radialGradient id="e-planet" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#9fb6ff"/><stop offset="1" stop-color="#5a4bff"/>
+    </radialGradient>
+    <!-- F 棱镜 -->
+    <linearGradient id="f-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c22"/><stop offset="1" stop-color="#0a0a0d"/>
+    </linearGradient>
+    <linearGradient id="f-in" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <!-- G 面板缩影 -->
+    <linearGradient id="g-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e4e7f0"/>
+    </linearGradient>
+  </defs><circle cx="12" cy="12" r="4.5" fill="currentColor"/><ellipse cx="12" cy="12" rx="9.5" ry="3.4" fill="none" stroke="currentColor" stroke-width="1.6" transform="rotate(-22 12 12)"/></svg>

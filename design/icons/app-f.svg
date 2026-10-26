@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="70"/></filter>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="20" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".28"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- A 星光透镜 -->
+    <linearGradient id="a-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6f8dff"/><stop offset="1" stop-color="#a456ff"/>
+    </linearGradient>
+    <!-- B 命令栏 -->
+    <linearGradient id="b-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2e3040"/><stop offset="1" stop-color="#13141b"/>
+    </linearGradient>
+    <linearGradient id="b-glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7aa2ff"/><stop offset="1" stop-color="#b16bff"/>
+    </linearGradient>
+    <!-- C 取景框 -->
+    <linearGradient id="c-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3b4"/><stop offset="1" stop-color="#2f62ff"/>
+    </linearGradient>
+    <!-- D 光标 L -->
+    <linearGradient id="d-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a4d"/><stop offset="1" stop-color="#ff3d7f"/>
+    </linearGradient>
+    <!-- E 轨道 -->
+    <radialGradient id="e-bg" cx=".3" cy=".25" r="1">
+      <stop offset="0" stop-color="#26357a"/><stop offset="1" stop-color="#0b1026"/>
+    </radialGradient>
+    <radialGradient id="e-planet" cx=".35" cy=".3" r=".75">
+      <stop offset="0" stop-color="#ffffff"/><stop offset=".35" stop-color="#9fb6ff"/><stop offset="1" stop-color="#5a4bff"/>
+    </radialGradient>
+    <!-- F 棱镜 -->
+    <linearGradient id="f-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1c22"/><stop offset="1" stop-color="#0a0a0d"/>
+    </linearGradient>
+    <linearGradient id="f-in" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <!-- G 面板缩影 -->
+    <linearGradient id="g-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#e4e7f0"/>
+    </linearGradient>
+  </defs>
+    <g filter="url(#sh)">
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#f-bg)"/>
+      <rect x="100" y="100" width="824" height="824" rx="185" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="4"/>
+    </g>
+    <path d="M160 590 L420 520" stroke="url(#f-in)" stroke-width="22" stroke-linecap="round"/>
+    <g stroke-width="26" stroke-linecap="round">
+      <path d="M600 470 L850 360" stroke="#ff5f6d"/>
+      <path d="M612 500 L855 450" stroke="#ffb35c"/>
+      <path d="M625 530 L858 540" stroke="#ffe066"/>
+      <path d="M638 560 L855 630" stroke="#5bd18b"/>
+      <path d="M650 590 L848 720" stroke="#5b8cff"/>
+    </g>
+    <path d="M512 300 L680 640 H344 Z" fill="#202027" stroke="#fff" stroke-width="30" stroke-linejoin="round"/>
+    <path d="M512 380 L620 600 H404 Z" fill="#fff" fill-opacity=".06"/>
+  </svg>
